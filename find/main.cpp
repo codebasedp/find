@@ -1,20 +1,51 @@
-// find.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// DzMap.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
+#include <map>
 
+struct StudentInfo {
+    std::string firstName;
+    std::string secondName;
+    int avarageScore;
+};
+
+bool MaxAvarageScore(StudentInfo n) {
+    return n.avarageScore % 100 == 0;
+};
+bool MaxAvarageScore(int n) {
+    return n % 100 == 0;
+};
 int main()
 {
-    std::cout << "Hello World!\n";
+    StudentInfo anton;
+    anton.firstName = "Anton";
+    anton.secondName = "Antonov";
+    anton.avarageScore = 57;
+    StudentInfo valero;
+    valero.firstName = "Valero";
+    valero.secondName = "Valerov";
+    valero.avarageScore = 78;
+    StudentInfo petro;
+    petro.firstName = "Petro";
+    petro.secondName = "Petrov";
+    petro.avarageScore = 8;
+    StudentInfo setro;
+    setro.firstName = "Setro";
+    setro.secondName = "Setrov";
+    setro.avarageScore = 100;
+
+    std::map<int, StudentInfo> students;
+    students.insert(std::make_pair(11, anton));
+    students.insert(std::make_pair(2, valero));
+    students.insert(std::make_pair(32, petro));
+    students.insert(std::make_pair(24, setro));
+    auto first = students.begin();
+    auto last = students.end();
+
+
+    //auto it = std::find_if(first, last, MaxAvarageScore);
+
+    //std::cout << it->second.firstName;
+
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
