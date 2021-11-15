@@ -45,5 +45,5 @@ int main()
     std::map<int, StudentInfo>::iterator it = 
         std::find_if(first, last, MaxAvarageScore);
 
-    std::cout << it->second.firstName;
+    std::cout << "first name is: " << it->second.firstName;
 }
