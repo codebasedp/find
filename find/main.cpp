@@ -10,12 +10,10 @@ struct StudentInfo {
     int avarageScore;
 };
 
-bool MaxAvarageScore(StudentInfo n) {
-    return n.avarageScore % 100 == 0;
+bool MaxAvarageScore(const std::pair<int, StudentInfo>& n) {
+    return n.second.avarageScore % 100 == 0;
 };
-bool MaxAvarageScore(int n) {
-    return n % 100 == 0;
-};
+
 int main()
 {
     StudentInfo anton;
@@ -44,8 +42,8 @@ int main()
     auto last = students.end();
 
 
-    //auto it = std::find_if(first, last, MaxAvarageScore);
+    std::map<int, StudentInfo>::iterator it = 
+        std::find_if(first, last, MaxAvarageScore);
 
-    //std::cout << it->second.firstName;
-
+    std::cout << it->second.firstName;
 }
